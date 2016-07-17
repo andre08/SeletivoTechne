@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="ListaPessoas">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Processo Seletivo Techne</title>
+        <link rel="stylesheet" type="text/css" href="include/css/bootstrap.css">
+        <script src="include/js/angular.min.js"></script>
+        <script src="include/js/jquery-1.9.1.min.js"></script>
+        <script src="include/js/bootstrap.min.js"></script>
+        <script src="include/js/base.js"></script>
+    </head>
+    <body ng-controller="ListaPessoasCtrl" style="margin: 10px">
+
+        <h1>Projeto para processo seletivo Techne</h1>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Lista de Pessoas
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-responsive">
+                            <tr>
+                                <th>#</th>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>Idade</th>
+                                <th>Ações</th>
+                            </tr>
+                            <tr ng-class="{'selecionado negrito' : pessoa.selecionado}" ng-repeat="pessoa in pessoas">
+                                <td>{{pessoa.id}}</td>
+                                <td>{{pessoa.nome}}</td>
+                                <td>{{pessoa.cpf}}</td>
+                                <td>{{pessoa.idade}}</td>
+                                <td> 
+                                    <button type="button" class="btn btn-default" id="btnExcluir" ng-click="editarPessoa(pessoa)">Alterar</button>
+                                    <button type="button" class="btn btn-danger" id="btnExcluir" ng-click="apagarPessoa(pessoa)">Excluir</button>
+                                </td>
+                            </tr>
+                        </table>                         
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Cadastro de Pessoas
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label>Id:</label>
+                                        <input class="form-control" id="txtId" ng-model="pessoa.id" value="{{pessoa.id}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="form-group">
+                                        <label>Nome:</label>
+                                        <input class="form-control" id="txtNome" ng-model="pessoa.nome" value="{{pessoa.nome}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>CPF</label>
+                                        <input class="form-control" id="txtCPF" ng-model="pessoa.cpf" value="{{pessoa.cpf}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label>Idade</label>
+                                        <input class="form-control" id="txtIdade" ng-model="pessoa.idade" value="{{pessoa.idade}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-primary" id="btnSalvar" ng-click="adicionarPessoa(pessoa)">Salva</button>
+                                        
+                                        <button type="button" class="btn btn-default" id="btnLimpar" ng-click="limparPessoa()">Limpar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+    </body>
+</html>
