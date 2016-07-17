@@ -51,18 +51,18 @@
                         Cadastro de Pessoas
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form role="form" name="frmPessoa" id="frmPessoa">
                             <div class="row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
                                         <label>Id:</label>
-                                        <input class="form-control" id="txtId" ng-model="pessoa.id" value="{{pessoa.id}}">
+                                        <input class="form-control" id="txtId" ng-model="pessoa.id" value="{{pessoa.id}}" ng-readonly="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="form-group">
                                         <label>Nome:</label>
-                                        <input class="form-control" id="txtNome" ng-model="pessoa.nome" value="{{pessoa.nome}}">
+                                        <input class="form-control" type="text" id="txtNome" ng-model="pessoa.nome" value="{{pessoa.nome}}" ng-riquered="true">
                                     </div>
                                 </div>
                             </div>
@@ -70,21 +70,25 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>CPF</label>
-                                        <input class="form-control" id="txtCPF" ng-model="pessoa.cpf" value="{{pessoa.cpf}}">
+                                        <input class="form-control" type="text" id="txtCPF" ng-model="pessoa.cpf" value="{{pessoa.cpf}}" ng-riquered="true">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label>Idade</label>
-                                        <input class="form-control" id="txtIdade" ng-model="pessoa.idade" value="{{pessoa.idade}}">
+                                        <input class="form-control" type="number" id="txtIdade" ng-model="pessoa.idade" value="{{pessoa.idade}}" ng-riquered="true">
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                        Para salvar você deve informar o nome, o cpf e a idade!
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <button type="button" class="btn btn-primary" id="btnSalvar" ng-click="adicionarPessoa(pessoa)">Salva</button>
-                                        
+                                        <button type="button" class="btn btn-primary" id="btnSalvar" ng-click="adicionarPessoa(pessoa)" ng-disabled="!pessoa.nome || !pessoa.idade || !pessoa.cpf">Salva</button>
                                         <button type="button" class="btn btn-default" id="btnLimpar" ng-click="limparPessoa()">Limpar</button>
                                     </div>
                                 </div>
