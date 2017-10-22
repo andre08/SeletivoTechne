@@ -2,7 +2,6 @@ package com.seletivotechne.controller;
 
 import com.seletivotechne.dao.PessoaDao;
 import com.seletivotechne.model.Pessoa;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
